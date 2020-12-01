@@ -34,4 +34,20 @@ public class SuperArray{
     size++;
     return true;
   }
+
+  public String get (int index) {
+    if (index<0||index>=size) {
+      throw new IndexOutOfBoundsException("Index" + index + "cannot be out of range of the SuperArray");
+    }
+    return data[index];
+  }
+
+  public String set(int index, String element) {
+    if (index<0||index>=size) {
+      throw new IndexOutOfBoundsException("Index" + index + "cannot be out of range of the SuperArray");
+    }
+    String replaced = data[index];
+    data[index] = element;
+    return replaced;
+  }
 }
