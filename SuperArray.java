@@ -50,4 +50,24 @@ public class SuperArray{
     data[index] = element;
     return replaced;
   }
+
+  public void clear() {
+    data = new String[data.length];
+    size = 0;
+  }
+
+  public boolean isEmpty() {
+   return size == 0;
+ }
+
+ public String toString() {
+  if (size == 0) {
+    return "[]";
+  }
+  String newString = "[";
+  for (int i=0;i<size-1;i++) {
+    newString+=data[i] + ", ";
+  }
+  return newString + data[size-1] + "]";
+}
 }
