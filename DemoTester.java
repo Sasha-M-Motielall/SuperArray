@@ -15,5 +15,7 @@ public class DemoTester {
     overlaps2.add("e"); overlaps2.add("f");  overlaps2.add("g");
     overlaps2.add("h"); overlaps2.add("i");  overlaps2.add("j");
     System.out.println(Demo.findOverLap(overlaps,overlaps2));
+
+    System.out.println(Demo.zip(overlaps,overlaps2));
   }
 }
