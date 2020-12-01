@@ -19,4 +19,28 @@ public class Demo{
         }}}
     return result;
   }
+
+  public static SuperArray zip(SuperArray a, SuperArray b){
+    SuperArray small = new SuperArray();
+    SuperArray large = new SuperArray();
+    SuperArray combined = new SuperArray();
+    if(a.size() <= b.size()){
+      for(int i = 0; i < a.size(); i++){
+        combined.add(a.get(i));
+        combined.add(b.get(i));
+      }
+    if(a.size() != b.size()){
+      for(int i = a.size(); i < b.size(); i++){
+        combined.add(b.get(i));
+      }}
+    }else{
+      for(int i = 0; i < b.size(); i++){
+        combined.add(a.get(i));
+        combined.add(b.get(i));
+      }
+      for(int i = b.size(); i < a.size(); i++){
+        combined.add(a.get(i));
+      }}
+    return combined;
+  }
 }
