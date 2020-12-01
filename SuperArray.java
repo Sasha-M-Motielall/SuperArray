@@ -17,4 +17,21 @@ public class SuperArray{
   public int size() {
     return size;
   }
+
+  private void resize() {
+    String[] arr = new String[data.length*2 + 1];
+    for (int i=0;i<data.length;i++) {
+      arr[i] = data[i];
+    }
+    data = arr;
+  }
+
+  public boolean add(String element) {
+    if (size == data.length) {
+      resize();
+    }
+    data[size] = element;
+    size++;
+    return true;
+  }
 }
