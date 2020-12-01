@@ -96,4 +96,34 @@ public class SuperArray{
     data = sizer;
     size++;
   }
+
+  public String remove(int index) {
+    if (index<0||index>=size) {
+      throw new IndexOutOfBoundsException("Index" + index + "cannot be out of range of the SuperArray");
+    }
+    String newString = data[index];
+    for (int i=0; i<size-1;i++) {
+      data[i] = data[i+1];
+    }
+    data[size-1] = null;
+    size--;
+    return newString;
+  }
+
+  public int indexOf(String x) {
+    for (int i=0; i<size;i++) {
+      if (data[i].equals(x)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public String[] toArray() {
+    String[] arr = new String[size];
+    for (int i=0; i<size;i++) {
+      arr[i] = data[i];
+    }
+    return arr;
+  }
 }
