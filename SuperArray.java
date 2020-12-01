@@ -60,14 +60,40 @@ public class SuperArray{
    return size == 0;
  }
 
- public String toString() {
-  if (size == 0) {
-    return "[]";
+  public String toString() {
+    if (size == 0) {
+      return "[]";
+    }
+    String newString = "[";
+    for (int i=0;i<size-1;i++) {
+      newString+=data[i] + ", ";
+    }return newString + data[size-1] + "]";
   }
-  String newString = "[";
-  for (int i=0;i<size-1;i++) {
-    newString+=data[i] + ", ";
+
+  public boolean contains(String x) {
+    for (int i=0;i<size;i++) {
+      if(data[i].equals(x))
+        return true;
+      }
+    return false;
   }
-  return newString + data[size-1] + "]";
-}
+
+  public void add(int index, String element) {
+    if (index<0||index>=size) {
+      throw new IndexOutOfBoundsException("Index" + index + "cannot be out of range of the SuperArray");
+    }
+    if (size == data.length) {
+      resize();
+    }
+    String[] sizer = new String[data.length];
+    for (int i=0;i<index;i++) {
+      sizer[i] = data[i];
+    }
+    sizer[index] = element;
+    for (int i=index;i<data.length-1;i++) {
+      sizer[i+1] = data[i];
+    }
+    data = sizer;
+    size++;
+  }
 }
